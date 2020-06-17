@@ -1,3 +1,4 @@
+//Exercise 6.3
 package com.kodilla.testing.collection;
 
 import org.junit.*;

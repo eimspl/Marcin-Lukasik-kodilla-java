@@ -1,3 +1,4 @@
+//Exercise 6.3
 package com.kodilla.testing.collection;
 
 import java.util.ArrayList;
@@ -7,12 +8,12 @@ import java.util.List;
 public class OddNumbersExterminator {
 
     public ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
-        ArrayList<Integer> listEven = new ArrayList<Integer>();
-        for (Integer currentNumber : numbers) {
-            if (currentNumber % 2 == 0) {
-                listEven.add(currentNumber);
+        ArrayList<Integer> listOfEvenNumbers = new ArrayList<Integer>();
+        for (Integer i : numbers) {
+            if (i % 2 == 0) {
+                listOfEvenNumbers.add(i);
             }
         }
-        return listEven;
+        return listOfEvenNumbers;
     }
 }
