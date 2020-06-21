@@ -11,6 +11,7 @@ class CalculateStatistic {
     private double averageNumbersCommentsOfPost;
     private double averageNumbersCommentsOfUser;
     private double averageNumbersPostOfUser;
+    private String space =" ";
 
     public CalculateStatistic(Statistics statistics) {
         this.statistics = statistics;
@@ -34,12 +35,12 @@ class CalculateStatistic {
         }
     }
     public void showStatistics() {
-        System.out.println("Number of users: " + numbersOfUsers);
-        System.out.println("Number of posts: " + numbersOfPosts);
-        System.out.println("Number of comments: " + numbersOfComments);
-        System.out.println("Avarage posts per user: " + averageNumbersPostOfUser);
-        System.out.println("Avarage comments per user: " + averageNumbersCommentsOfUser);
-        System.out.println("Avarage comments per post: " + averageNumbersCommentsOfPost);
+        System.out.println("Number of users:" + space + numbersOfUsers);
+        System.out.println("Number of posts:" + space + numbersOfPosts);
+        System.out.println("Number of comments:" + space + numbersOfComments);
+        System.out.println("Avarage posts per user:" + space + averageNumbersPostOfUser);
+        System.out.println("Avarage comments per user:" + space + averageNumbersCommentsOfUser);
+        System.out.println("Avarage comments per post:" + space + averageNumbersCommentsOfPost);
     }
 
     public int getNumbersOfUsers() {

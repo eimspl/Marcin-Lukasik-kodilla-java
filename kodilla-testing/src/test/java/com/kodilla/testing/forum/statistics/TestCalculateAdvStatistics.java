@@ -32,7 +32,7 @@ public class TestCalculateAdvStatistics {
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {
-            usersNames.add("Name" + i);
+            usersNames.add("Username" + i);
         }
         int postCount = 0;
         int commentsCount = 500;
@@ -54,7 +54,7 @@ public class TestCalculateAdvStatistics {
         Assert.assertEquals(0, AverageNumbersCommentsOfPost, 0);
         Assert.assertEquals(5.0, AverageNumbersCommentsOfUser, 0);
         Assert.assertEquals(0, AverageNumbersPostOfUser, 0);
-        System.out.println("Test gdy liczba postów = 0");
+        System.out.println("Test when number of posts is 0");
         calculateStatistic.showStatistics();
     }
 
@@ -64,7 +64,7 @@ public class TestCalculateAdvStatistics {
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {
-            usersNames.add("Name" + i);
+            usersNames.add("Username" + i);
         }
         int postCount = 1000;
         int commentsCount = 500;
@@ -84,7 +84,7 @@ public class TestCalculateAdvStatistics {
         Assert.assertEquals(0.5, AverageNumbersCommentsOfPost, 0);
         Assert.assertEquals(5.0, AverageNumbersCommentsOfUser, 0);
         Assert.assertEquals(10.0, AverageNumbersPostOfUser, 0);
-        System.out.println("Test gdy liczba postów = 1000");
+        System.out.println("Test when number of posts is 1000");
         calculateStatistic.showStatistics();
     }
 
@@ -94,7 +94,7 @@ public class TestCalculateAdvStatistics {
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {
-            usersNames.add("Name" + i);
+            usersNames.add("Username" + i);
         }
         int postCount = 1000;
         int commentsCount = 0;
@@ -116,7 +116,7 @@ public class TestCalculateAdvStatistics {
         Assert.assertEquals(0.0, AverageNumbersCommentsOfPost, 0);
         Assert.assertEquals(0.0, AverageNumbersCommentsOfUser, 0);
         Assert.assertEquals(10.0, AverageNumbersPostOfUser, 0);
-        System.out.println("Test gdy liczba komentarzu =0 ");
+        System.out.println("Test when number of comments is 0");
         calculateStatistic.showStatistics();
     }
 
@@ -126,7 +126,7 @@ public class TestCalculateAdvStatistics {
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {
-            usersNames.add("Name" + i);
+            usersNames.add("Username" + i);
         }
         int postCount = 100;
         int commentsCount = 50;
@@ -147,7 +147,7 @@ public class TestCalculateAdvStatistics {
         Assert.assertEquals(0.5, AverageNumbersCommentsOfPost, 0);
         Assert.assertEquals(0.5, AverageNumbersCommentsOfUser, 0);
         Assert.assertEquals(1.0, AverageNumbersPostOfUser, 0);
-        System.out.println("Test gdy liczba komentarzy jest mniejsza niż liczba postów");
+        System.out.println("Test when number of comments is smaller than number of posts");
         calculateStatistic.showStatistics();
     }
 
@@ -157,7 +157,7 @@ public class TestCalculateAdvStatistics {
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {
-            usersNames.add("Name" + i);
+            usersNames.add("Username" + i);
         }
         int postCount = 100;
         int commentsCount = 500;
@@ -178,7 +178,7 @@ public class TestCalculateAdvStatistics {
         Assert.assertEquals(5.0, AverageNumbersCommentsOfPost, 0);
         Assert.assertEquals(5.0, AverageNumbersCommentsOfUser, 0);
         Assert.assertEquals(1.0, AverageNumbersPostOfUser, 0);
-        System.out.println("Test gdy liczba komentarzy jest większa liczba postów ");
+        System.out.println("Test when number of comments is bigger than number of posts");
         calculateStatistic.showStatistics();
     }
 
@@ -208,7 +208,7 @@ public class TestCalculateAdvStatistics {
         Assert.assertEquals(5.0, AverageNumbersCommentsOfPost, 0);
         Assert.assertEquals(0.0, AverageNumbersCommentsOfUser, 0);
         Assert.assertEquals(0.0, AverageNumbersPostOfUser, 0);
-        System.out.println("Test gdy liczba użytkowników jest równa 0 ");
+        System.out.println("Test when number of users is 0 ");
         calculateStatistic.showStatistics();
     }
 
@@ -218,7 +218,7 @@ public class TestCalculateAdvStatistics {
         Statistics statisticsMock = mock(Statistics.class);
         List<String> usersNames = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {
-            usersNames.add("Name" + i);
+            usersNames.add("Username" + i);
         }
         int postCount = 1000;
         int commentsCount = 200;
@@ -239,7 +239,7 @@ public class TestCalculateAdvStatistics {
         Assert.assertEquals(0.2, AverageNumbersCommentsOfPost, 0);
         Assert.assertEquals(2.0, AverageNumbersCommentsOfUser, 0);
         Assert.assertEquals(10.0, AverageNumbersPostOfUser, 0);
-        System.out.println("Test gdy liczba użytkowników 100 ");
+        System.out.println("Test when number of user is 100 ");
         calculateStatistic.showStatistics();
     }
 }
