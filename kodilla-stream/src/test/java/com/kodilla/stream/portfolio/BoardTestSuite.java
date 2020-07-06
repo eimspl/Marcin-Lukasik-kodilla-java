@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,7 +91,7 @@ public class BoardTestSuite {
         double averageTime = project.getTaskLists().stream()
                 .filter(taskInProgress::contains)
                 .flatMap(t -> t.getTasks().stream())
-                .mapToDouble(t -> Period.between(t.getCreated(), LocalDate.now()).getDays())
+                .mapToDouble(t -> ChronoUnit.DAYS.between(t.getCreated(), LocalDate.now()))
                 .average()
                 .getAsDouble();
         //Then
