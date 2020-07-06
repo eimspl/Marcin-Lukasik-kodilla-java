@@ -16,6 +16,7 @@ public class ArrayOperationsTestSuite {
         }
         return listNumbers;
     }
+
     @Test
     public void testGetAverage() {
         //given
