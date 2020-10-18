@@ -3,4 +3,7 @@ include 'kodilla-testing'
 include 'kodilla-stream'
 include 'kodilla-exception'
 include 'oix'
+include 'cassino'
+include 'ttt'
+include 'eksperymentowanie'
 
