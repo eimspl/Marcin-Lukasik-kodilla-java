@@ -2,16 +2,16 @@ package com.kodilla.good.patterns.challenges;
 
 import java.util.stream.Collectors;
 
-public class MoviStoreWalk {
+public class MovieStoreWalk {
 
     public static void main(String[] args) {
 
         MovieStore movieStore = new MovieStore();
 
-        String titleList = movieStore.getMovies().entrySet().stream()
+        String listOfTitle = movieStore.getMovies().entrySet().stream()
                 .flatMap(t -> t.getValue().stream())
                 .collect(Collectors.joining("!"));
 
-        System.out.print(titleList);
+        System.out.print(listOfTitle);
     }
 }
