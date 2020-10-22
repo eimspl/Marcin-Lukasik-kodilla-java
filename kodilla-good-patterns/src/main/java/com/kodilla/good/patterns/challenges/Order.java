@@ -1,14 +1,16 @@
 package com.kodilla.good.patterns.challenges;
 
-public class OrderDto {
+import java.time.LocalDateTime;
+
+public class Order {
     private User user;
     private Product product;
-    private boolean isBought;
+    private LocalDateTime orderTime;
 
-    public OrderDto(final User user, final Product product, final boolean isBought) {
+    public Order(final User user, final Product product, final LocalDateTime orderTime) {
         this.user = user;
         this.product = product;
-        this.isBought = isBought;
+        this.orderTime = orderTime;
     }
 
     public User getUser() {
@@ -19,7 +21,7 @@ public class OrderDto {
         return product;
     }
 
-    public boolean isBought() {
-        return isBought;
+    public LocalDateTime getOrderTime() {
+        return orderTime;
     }
 }

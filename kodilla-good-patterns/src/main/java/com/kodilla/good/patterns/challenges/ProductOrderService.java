@@ -1,28 +1,20 @@
 package com.kodilla.good.patterns.challenges;
+import com.kodilla.good.patterns.challenge.OrderServiceCashOnDelivery;
 
 public class ProductOrderService {
+    public static void main(String[] args) {
+        SampleOrder sampleOrder = new SampleOrder();
+        Order order = sampleOrder.retrieve();
 
-    private MailInformationService mailInformationService;
-    private OrderedItems orderedItems;
-    private OrderWarehouseService orderWarehouseService;
+        OrderProcessor orderProcessor = new OrderProcessor(
+                new OrderServiceCashOnDelivery(), new InfoServiceSMS(), new OrderRepositoryElectronics());
+        OrderDto orderDto = orderProcessor.process(order);
 
-    public ProductOrderService(final MailInformationService mailInformationService,
-                               final OrderedItems orderedItems,
-                               final OrderWarehouseService orderWarehouseService) {
-        this.mailInformationService = mailInformationService;
-        this.orderedItems = orderedItems;
-        this.orderWarehouseService = orderWarehouseService;
-    }
-
-    public OrderDto process(final OrderRequest orderRequest) {
-        boolean isOrdered = orderedItems.buyNow(orderRequest.getUser(), orderRequest.getItem());
-
-        if (isOrdered) {
-            mailInformationService.inform(orderRequest.getUser());
-            orderWarehouseService.createOrder(orderRequest.getUser(), orderRequest.getItem());
-            return new OrderDto(orderRequest.getUser(), true);
+        if (orderDto.isBought()) {
+            System.out.println("SUMMARY: " + orderDto.getProduct().getProductName() + " has been ordered by "
+                    + orderDto.getUser().getNickname() + ".");
         } else {
-            return new OrderDto(orderRequest.getUser(), false);
+            System.out.println("SUMMARY: The order couldn't be completed.");
         }
     }
 }

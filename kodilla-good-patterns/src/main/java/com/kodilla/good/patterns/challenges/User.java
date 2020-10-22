@@ -1,43 +1,24 @@
 package com.kodilla.good.patterns.challenges;
 
+import java.util.ArrayList;
+
 public class User {
-    private String nickName;
-    private String userName;
-    private String userSurname;
-    private String userMail;
-    private String userPhoneNumber;
-    private String userAddress;
+    private final String nickname;
+    private final String firstName;
+    private final String lastName;
+    private ArrayList<Order> historyOfOrders = new ArrayList<>();
 
-    public User(String nickName, String userName, String userSurname, String userMail, String userPhoneNumber, String userAddress) {
-        this.nickName = nickName;
-        this.userName = userName;
-        this.userSurname = userSurname;
-        this.userMail = userMail;
-        this.userPhoneNumber = userPhoneNumber;
-        this.userAddress = userAddress;
+    public User(final String nickname, final String firstName, final String lastName) {
+        this.nickname = nickname;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public String getNickName() {
-        return userName;
+    public String getNickname() {
+        return nickname;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getUserSurname() {
-        return userSurname;
-    }
-
-    public String getUserMail() {
-        return userMail;
-    }
-
-    public String getUserPhoneNumber() {
-        return userPhoneNumber;
-    }
-
-    public String getUserAddress() {
-        return userAddress;
+    public void addOrderToUserHistory(Order order) {
+        historyOfOrders.add(order);
     }
 }
