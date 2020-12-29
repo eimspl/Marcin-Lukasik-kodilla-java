@@ -1,10 +1,30 @@
 package com.kodilla.hibernate.task;
 
 import com.kodilla.hibernate.tasklist.TaskList;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+
+@NamedQueries({
+        @NamedQuery(name = "Task.retrieveLongTasks",
+                query = "FROM Task WHERE duration >10"),
+
+        @NamedQuery(name = "Task.retrieveShortTasks",
+                query = "FROM Task WHERE duration <=10"),
+
+        @NamedQuery(name = "Task.retrieveTaskWithDurationLongerThen",
+                query = "FROM Task WHERE duration > :DURATION "
+        )
+})
+
+@NamedNativeQuery(
+
+        name = "Task.retrieveTasksWithEnoughTime",
+        query = "SELECT * FROM TASKS WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) >5",
+        resultClass = Task.class
+)
 
 @Entity
 @Table(name = "TASKS")
@@ -16,14 +36,6 @@ public final class Task {
     private TaskFinancialDetails taskFinancialDetails;
     private TaskList taskList;
 
-    public TaskList getTaskList() {
-        return taskList;
-    }
-
-    public void setTaskList(TaskList taskList) {
-        this.taskList = taskList;
-    }
-
     public Task() {
     }
 
@@ -31,16 +43,6 @@ public final class Task {
         this.description = description;
         this.created = new Date();
         this.duration = duration;
-    }
-
-    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
-        this.taskFinancialDetails = taskFinancialDetails;
-    }
-
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "TASKS_FINANCIALS_ID")
-    public TaskFinancialDetails getTaskFinancialDetails() {
-        return taskFinancialDetails;
     }
 
     @Id
@@ -57,14 +59,34 @@ public final class Task {
     }
 
     @NotNull
-    @Column(name="CREATED")
+    @Column(name = "CREATED")
     public Date getCreated() {
         return created;
     }
 
-    @Column(name="DURATION")
+    @Column(name = "DURATION")
     public int getDuration() {
         return duration;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TASK_FINANCIAL_ID")
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
     }
 
     private void setId(int id) {

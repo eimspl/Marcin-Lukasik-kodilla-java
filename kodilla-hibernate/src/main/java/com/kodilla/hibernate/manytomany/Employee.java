@@ -5,6 +5,15 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Employee.findByLastName",
+        query = "FROM Employee WHERE lastname = :SEARCHINGLASTNAME")
+
+@NamedNativeQuery(
+        name = "Employee.findByAnyPartOfName",
+        query = "SELECT * FROM Employees WHERE lastname LIKE :ANYPARTOFNAME",
+        resultClass = Employee.class)
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
