@@ -11,14 +11,25 @@ public final class Task {
     private String description;
     private Date created;
     private int duration;
+    private TaskFinancialDetails taskFinancialDetails;
 
-    public Task(String listname, String description) {
+    public Task() {
     }
 
     public Task(String description, int duration) {
         this.description = description;
         this.created = new Date();
         this.duration = duration;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
+
+
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
     }
 
     @Id

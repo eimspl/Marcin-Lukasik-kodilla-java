@@ -14,10 +14,14 @@ public class TaskFinancialDetails {
     public TaskFinancialDetails() {
     }
 
+
+
     public TaskFinancialDetails(BigDecimal price, boolean paid) {
         this.price = price;
         this.paid = paid;
     }
+
+
 
     @Id
     @GeneratedValue
