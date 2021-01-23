@@ -16,7 +16,7 @@ public class TaskFinancialDetailsDaoTestSuite {
     @Autowired
     TaskFinancialDetailsDao taskFinancialDetailsDao;
 
-    @Test
+ /*   @Test
     public void testFindByPaid() {
         //Given
         TaskFinancialDetails taskFinancialDetails =
@@ -32,6 +32,6 @@ public class TaskFinancialDetailsDaoTestSuite {
 
         //CleanUp
         taskFinancialDetailsDao.deleteById(id);
-    }
+    } */
 
 }

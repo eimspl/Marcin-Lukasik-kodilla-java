@@ -6,18 +6,11 @@ import java.util.ArrayList;
 public class Application {
     public static void main(String[] args) {
         OrdersSample ordersList = new OrdersSample();
-        ArrayList<Order> orders = ordersList.retrieve();
+        ArrayList<OrderDTO> orders = ordersList.retrieve();
+        Food2Door food2Door = new Food2Door();
+        for (OrderDTO order: orders) {
+            food2Door.order(order);
 
-        for (Order order: orders) {
-            OrderDTO orderDTO = order.getFoodDistributor().process(order);
-            if (orderDTO.isOrdered()) {
-                System.out.println("INFO O ZAMÓWIENIU:"
-                        + "\ndata: " + orderDTO.getOrderTime().format(DateTimeFormatter.ISO_DATE)
-                        + ", godzina: " + orderDTO.getOrderTime().format(DateTimeFormatter.ISO_TIME)
-                        + "\ntowar: " + orderDTO.getProduct().getProductName()
-                        + "\nilość: " + orderDTO.getQuantity()
-                        + "\ndostawca: " + orderDTO.getFoodDistributor().getDistributorName() + "\n");
-            }
         }
     }
 }

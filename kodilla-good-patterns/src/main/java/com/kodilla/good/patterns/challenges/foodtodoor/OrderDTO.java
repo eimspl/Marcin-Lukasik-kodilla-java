@@ -8,13 +8,13 @@ import java.time.LocalDateTime;
 public class OrderDTO {
     private boolean isOrdered;
     private LocalDateTime orderTime;
-    private FoodDistributor foodDistributor;
+    private String foodDistributor;
     private Product product;
     private int quantity;
 
     public OrderDTO(final boolean isOrdered,
                     final LocalDateTime orderTime,
-                    final FoodDistributor foodDistributor,
+                    final String foodDistributor,
                     final Product product,
                     final int quantity) {
         this.isOrdered = isOrdered;
@@ -32,7 +32,7 @@ public class OrderDTO {
         return orderTime;
     }
 
-    public FoodDistributor getFoodDistributor() {
+    public String getFoodDistributor() {
         return foodDistributor;
     }
 

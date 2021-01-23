@@ -21,7 +21,7 @@ public final class Library extends Prototype<Library> {
 
     public Library deepCopy() throws CloneNotSupportedException {
         Library clonedLibrary = this.shallowCopy();
-        clonedLibrary.books = new HashSet<>(books);
+        clonedLibrary.books = new HashSet<>(books); //stworzenie kopii !niezależnych! elementów (książek).
         return clonedLibrary;
     }
 

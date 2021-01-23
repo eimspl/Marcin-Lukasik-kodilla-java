@@ -50,6 +50,7 @@ public class FlightsProcessor {
         return new ArrayList<>(flightsTo);
     }
 
+    //wyszukać loty 1 i drugiego segmentu (3 parametry) i zwrócić sklejony wynik.
     public List<FlightWithAChange> getFlightsThrough(Airport through) {
         List<FlightWithAChange> flightsThrough = new ArrayList<>();
         List<Airport> tempFrom = getArrivalAirports(through);

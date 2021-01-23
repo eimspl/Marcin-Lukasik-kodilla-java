@@ -18,4 +18,6 @@ public interface EmployeeDao extends CrudRepository<Employee, Integer> {
 
     @Query(nativeQuery = true)
     List<Employee> findByAnyPartOfName(@Param("ANYPARTOFNAME") String anyPartOfName);
+
+
 }

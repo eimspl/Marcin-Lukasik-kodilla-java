@@ -19,7 +19,7 @@ public class TaskDaoTestSuite {
     private TaskDao taskDao;
     private static final String DESCRIPTION = "Test: Learn Hibernate";
 
-    @Test
+ /*   @Test
     public void testTaskDaoSave() {
         //Given
         Task task = new Task(DESCRIPTION, 7);
@@ -51,7 +51,7 @@ public class TaskDaoTestSuite {
 
         //CleanUp
         taskDao.deleteById(id);
-    }
+    } */
 
 
 }
