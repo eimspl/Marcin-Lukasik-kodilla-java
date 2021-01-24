@@ -15,13 +15,20 @@ public final class Library extends Prototype<Library> {
         return books;
     }
 
+    public boolean addBook(Book book) {
+        return books.add(book);
+    }
+
     public Library shallowCopy() throws CloneNotSupportedException {
         return super.clone();
     }
 
     public Library deepCopy() throws CloneNotSupportedException {
         Library clonedLibrary = this.shallowCopy();
-        clonedLibrary.books = new HashSet<>(books); //stworzenie kopii !niezależnych! elementów (książek).
+        clonedLibrary.books = new HashSet<>(books);
+        for (Book book : getBooks()) {
+            clonedLibrary.addBook(new Book(book.getTitle(), book.getAuthor(), book.getPublicationDate()));
+        }
         return clonedLibrary;
     }
 
